@@ -20,7 +20,7 @@ public class HarryPotterPromoPack {
         included = new HashSet<>();
     }
 
-    public Set<HarryPotterBook> possibleAdditions() {
+    Set<HarryPotterBook> possibleAdditions() {
         HashSet<HarryPotterBook> additions = new HashSet<>(series);
         additions.removeAll(included);
         return additions;
@@ -37,5 +37,9 @@ public class HarryPotterPromoPack {
         if (included.size() == 4) return new Price(new BigDecimal(25.60));
         if (included.size() == 5) return new Price(new BigDecimal(30.00));
         throw new IllegalStateException("Promo pack cannot have size other than 1-5");
+    }
+
+    public boolean canBeAdded(HarryPotterBook book) {
+        return possibleAdditions().contains(book);
     }
 }

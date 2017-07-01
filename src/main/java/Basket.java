@@ -34,7 +34,7 @@ public class Basket {
             boolean addedToPack = false;
             HarryPotterBook book = it.next();
             for (HarryPotterPromoPack pack : packs) {
-                if (pack.possibleAdditions().contains(book)) {
+                if (pack.canBeAdded(book)) {
                     pack.add(book);
                     addedToPack = true;
                     break;
